@@ -4,7 +4,7 @@ import Amplify, { PubSub } from 'aws-amplify';
 //import { Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
 import './assets/css/style.css'
-import header from './assets/img/header2.png'
+import header from './assets/images/header2.png'
 Amplify.configure(awsconfig);
 
 import $ from 'jquery';
