@@ -1,7 +1,7 @@
 import Amplify, { PubSub } from 'aws-amplify';
-import { API } from 'aws-amplify';
-import { AWSIoTProvider } from '@aws-amplify/pubsub/lib/Providers';
-import { Auth } from 'aws-amplify';
+//import { API } from 'aws-amplify';
+//import { AWSIoTProvider } from '@aws-amplify/pubsub/lib/Providers';
+//import { Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
 import './assets/css/style.css'
 import header from './assets/img/header2.png'
@@ -14,7 +14,7 @@ window.$ = $;
 /*const username = "weslei"
 const password = "weslei200"
 const email= "weslei200912@gmail.com"
-const code = "972842"*/
+const code = "972842"
 
 const resendCode = function (username) {
   Auth.resendSignUp(username).then(() => {
@@ -93,7 +93,7 @@ Auth.currentCredentials().then((info) => {
     $("#user_label").html("Authenticated: false")
   }
 });
-
+*/
 export {
   header
 }
