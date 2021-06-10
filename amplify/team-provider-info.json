@@ -10,6 +10,17 @@
       "StackName": "amplify-controlecontinuojs-dev-140231",
       "StackId": "arn:aws:cloudformation:us-east-1:140790021246:stack/amplify-controlecontinuojs-dev-140231/2df67660-b4d6-11eb-83af-0ecc4b1d1431",
       "AmplifyAppId": "d2nkhbr17ro46k"
+    },
+    "categories": {
+      "function": {
+        "controleContinuoLambda": {
+          "deploymentBucketName": "amplify-controlecontinuojs-dev-140231-deployment",
+          "s3Key": "amplify-builds/controleContinuoLambda-564e6667744658566542-build.zip"
+        }
+      },
+      "auth": {
+        "controlecontinuojsc3c952a0": {}
+      }
     }
   }
 }

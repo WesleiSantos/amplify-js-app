@@ -1,0 +1,13 @@
+{
+  "lambdaLayers": [],
+  "permissions": {
+    "storage": {
+      "controleContinuoDynamo": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  }
+}

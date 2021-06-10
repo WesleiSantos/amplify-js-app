@@ -1,0 +1,5 @@
+{
+    "tableName": "controleContinuoDynamo",
+    "partitionKeyName": "id",
+    "partitionKeyType": "N"
+}

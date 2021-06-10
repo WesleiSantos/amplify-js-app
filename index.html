@@ -18,18 +18,20 @@
 <body>
     <div class="collapse" id="navbarToggleExternalContent">
         <div class="bg-dark p-2">
+            <div class="alert alert-success" id="success-alert">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                Success!
+             </div>
             <form class="form-inline">
                 <div class="form-row align-items-center">
                     <div class="col-auto">
-                        <input type="email" class="form-control" id="exampleDropdownFormEmail2"
-                            placeholder="email@example.com">
+                        <input type="text" id="userName" placeholder="username" />
                     </div>
                     <div class="col-auto">
-                        <input type="password" class="form-control" id="exampleDropdownFormPassword2"
-                            placeholder="Password">
+                        <input type="password" id="password" placeholder="password" />
                     </div>
                     <div class="col-auto">
-                        <button type="submit" class="btn btn-primary mb-2">Sign in</button>
+                        <button id="login" class="btn btn-primary mb-2">login</button>
                     </div>
                 </div>
             </form>
@@ -40,6 +42,9 @@
             data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent">
             <span class="navbar-toggler-icon"></span>
         </button>
+	<div class="inf_user font-weight-bold">
+        	<label id="user_label">Authenticated: </label>
+    	</div>
     </nav>
     <header class=" bg-primary text-black text-center">
         <div class="container d-flex align-items-center flex-column">
@@ -47,6 +52,9 @@
             <h1 class="text-uppercase mb-3">Controle de Usuário</h1>
         </div>
     </header>
+    <div class="alert alert-success d-none" id="success-alert-receive">
+            <button type="button" class="close" data-dismiss="alert">x</button>
+    </div>	
     <div class="row justify-content-around mt-3">
         <div class="col-5">
             <div class="card scorpius-border-shadow border-top border-shadow">
@@ -55,22 +63,22 @@
                 </div>
                 <div class="card-body ">
                     <div class="d-flex justify-content-center font-weight-bold">
-                        <label for="status_lampada text-center ml-2">Status do dispositivo</label>
+                        <label for="status_device text-center ml-2">Status do dispositivo</label>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <div id="status_lampada" class="status_desligado"></div>
+                        <div id="status_device" class="status_desligado"></div>
                     </div>
                     <div class="d-flex justify-content-center font-weight-bold mt-3">
-                        <label for="status_lampada text-center ml-2">Modo de operação</label>
+                        <label for="modoOp text-center ml-2">Modo de operação</label>
                     </div>
                     <div class="d-flex justify-content-center ">
-                        <label for="status_lampada text-center ml-2">Detecção de acidentes</label>
+                        <label for="modoOp text-center ml-2" id="modoOp">...</label>
                     </div>
                     <div class="d-flex justify-content-center font-weight-bold  mt-3">
-                        <label for="status_lampada text-center ml-2">Tempo de resposta</label>
+                        <label for="connectionTime text-center ml-2">Tempo de resposta</label>
                     </div>
                     <div class="d-flex justify-content-center ">
-                        <label for="status_lampada text-center ml-2">1 min</label>
+                        <label for="connectionTime text-center ml-2" id="connectionTime">...</label>
                     </div>
                 </div>
             </div>
@@ -87,12 +95,12 @@
                                 Operação:</label>
                             <div class="form-check form-check-inline  ml-3">
                                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value="option1">
+                                    value="0" checked="true">
                                 <label class="form-check-label" for="inlineRadio1">Detecção de Acidentes</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="option2">
+                                    value="1">
                                 <label class="form-check-label" for="inlineRadio2">Alarme</label>
                             </div>
                         </div>
@@ -100,53 +108,50 @@
                             <label for="exampleFormControlSelect1" class="font-weight-bold">Definir Tempo de
                                 Resposta:</label>
                             <div class="btn-group inline ml-3" role="group" aria-label="Basic example">
-                                <input type="button" class="btn btn-default border" value="+">
-                                <input style="width: 4ch" class="form-control rounded-0" name="quantidade" value="0">
-                                <input type="button" class="btn btn-default border" value="-">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1" class="font-weight-bold">Definir Contatos de
-                                Emergência:</label>
-                            <div class="table-overflow">
-                                <table class="table table-hover text-center" id="table_tel">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Descrição</th>
-                                            <th scope="col">Número</th>
-                                            <th scope="col"></th>
-                                            <th scope="col"><button class="btn btn-success" href="#"><i
-                                                        class="fas fa-user-plus"></i></button></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Policia</td>
-                                            <td>190</td>
-                                            <td><button class="btn btn-danger" href="#"><i
-                                                        class="far fa-trash-alt"></i></button></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Corpo de Bombeiros</td>
-                                            <td>200</td>
-                                            <td><button class="btn btn-danger" href="#"><i
-                                                        class="far fa-trash-alt"></i></button></td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <input type="button" class="btn btn-default border" id="btnADC" value="+">
+                                <input style="width: 5ch" class="form-control rounded-0" name="quantidade" value="0">
+                                <input type="button" class="btn btn-default border" id="btnSUB" value="-">
                             </div>
                         </div>
                 </div>
-                <button class="btn btn-secondary ml-5 mr-5 mb-3" href="#"><i class="far fa-save"></i> Salvar</button>
+                <button class="btn btn-secondary ml-5 mr-5 mb-3" id="save"><i class="far fa-save"></i> Salvar</button>
                 </form>
             </div>
         </div>
     </div>
 </body>
 <script>
+    $("#success-alert").hide();
     $("#img-header").attr("src", libary.header)
+    $('.btn#login').click(e => {
+        e.preventDefault()
+        console.log("login")
+        let user = $('#userName').val()
+        let password = $('#password').val()
+        libary.login(user, password);
+    })
+    $('#save').click(e => {
+        e.preventDefault()
+        let val = $("input[name='inlineRadioOptions']:checked").val()
+        console.log(val)
+        let quantidade = $("input[name='quantidade']").val()
+        console.log(quantidade)
+        libary.publish_timer(quantidade)
+        libary.publish_state(val)
+    });
+    $('#btnADC').click(e => {
+        e.preventDefault()
+        let val = $("input[name='quantidade']").val()
+        val++;
+        $("input[name='quantidade']").val(val)
+    });
+    $('#btnSUB').click(e => {
+        e.preventDefault()
+        let val = $("input[name='quantidade']").val()
+        val--;
+        $("input[name='quantidade']").val(val)
+    });
+
 </script>
 
 </html>

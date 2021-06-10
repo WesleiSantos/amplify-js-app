@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/device",
+            "lambdaFunction": "controleContinuoLambda",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/device"
+        }
+    ],
+    "resourceName": "controleContinuoAPI",
+    "apiName": "controleContinuoAPI",
+    "functionArns": [
+        {
+            "lambdaFunction": "controleContinuoLambda"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-controlecontinuojs-dev-140231-authRole",
+        "unAuthRoleName": "amplify-controlecontinuojs-dev-140231-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "controleContinuoLambda",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
