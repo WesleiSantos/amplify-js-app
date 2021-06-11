@@ -92,7 +92,7 @@ setInterval(function () {
     } else {
       $("#status_device").removeClass("status_ligado").addClass("status_desligado")
       $("#modoOp").html("...")
-      $("#modoOp").html("...")
+      $("#connectionTime").html("...")
     }
   }).catch(err => {
     console.log(err);
